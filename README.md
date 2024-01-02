@@ -2,6 +2,8 @@
 
 Celestial Components is a frontend web component library built with React and Styled Components.
 
+See [homepage](https://dkayke.github.io/celestial-components/).
+
 ## Installation
 
 ```bash
