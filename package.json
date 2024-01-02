@@ -6,7 +6,7 @@
   "type": "module",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
-  "homepage": "https://github.com/dkayke/celestial-components",
+  "homepage": "https://dkayke.github.io/celestial-components/",
   "keywords": [
     "celestial components",
     "component",
