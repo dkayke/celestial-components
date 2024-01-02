@@ -3,8 +3,16 @@ import { render } from '@testing-library/react'
 
 import Foo from '.'
 
-test('renders Foo', () => {
-  const { getByText } = render(<Foo />)
-  const text = getByText(/Celestial/i)
-  expect(text).toBeInTheDocument()
+describe('Foo component', () => {
+  it('renders Foo type A', () => {
+    const { getByText } = render(<Foo type="A" />)
+    const text = getByText(/Celestial - A/i)
+    expect(text).toBeInTheDocument()
+  })
+  
+  it('renders Foo type B', () => {
+    const { getByText } = render(<Foo type="B" />)
+    const text = getByText(/Celestial - B/i)
+    expect(text).toBeInTheDocument()
+  })
 })

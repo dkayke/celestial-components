@@ -1,0 +1,61 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Configure your project" />
+
+<div className="sb-container">
+  <div className="sb-section-logo">
+    <img src="./assets/images/logo-celestial.png" />
+  </div>
+
+  <div className="sb-separator"></div>
+
+  # Configure your project
+  <p>Celestial Components is a frontend web component library built with React and Styled Components.</p>
+
+  ## Installation 
+  ```bash
+  npm install celestial-components
+  ```
+  
+  ## Usage
+  <p>Import the components you need in your React application:</p>
+  
+  ```typescript
+  import { Foo } from 'celestial-components'
+
+  function App() {
+    return (
+      <div>
+        <Foo />
+      </div>
+    )
+  }
+  ```
+</div>
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 3rem;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .sb-container p {
+    font-size: 0.875rem;
+  }
+
+  .sb-separator {
+    height:0.3rem;
+    border-radius: 100%;
+    margin: 1.2rem 0;
+    background: rgb(107,0,249);
+    background: -moz-linear-gradient(90deg, rgba(107,0,249,1) 0%, rgba(1,99,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(107,0,249,1) 0%, rgba(1,99,255,1) 100%);
+    background: linear-gradient(90deg, rgba(107,0,249,1) 0%, rgba(1,99,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6b00f9",endColorstr="#0163ff",GradientType=1);
+  }
+  `}
+</style>

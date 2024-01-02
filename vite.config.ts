@@ -3,9 +3,17 @@ import browserslist from 'browserslist'
 import { browserslistToTargets } from 'lightningcss'
 import path from 'path'
 import { defineConfig } from 'vite'
+import copy from 'rollup-plugin-copy'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    copy({
+      copyOnce: true,
+      hook: 'writeBundle',
+      targets: [{ src: './src/assets', dest: 'dist/' }]
+    })
+  ],
   build: {
     outDir: './dist',
     lib: {
