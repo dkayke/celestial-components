@@ -1,6 +1,6 @@
 {
   "name": "celestial-components",
-  "version": "0.0.1-dev",
+  "version": "0.0.2-dev",
   "title": "Celestial Components",
   "description": "Celestial Components is a frontend web component library built with React and Styled Components.",
   "type": "module",
