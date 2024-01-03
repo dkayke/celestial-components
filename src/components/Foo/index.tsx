@@ -1,7 +1,6 @@
 import { FC } from 'react'
+import { FooProps } from './Foo.d'
 import * as S from './style'
-import { FooProps } from './Foo'
-
 
 const Foo: FC<FooProps> = ({ type }) => {
   return (

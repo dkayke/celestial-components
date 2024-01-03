@@ -44,6 +44,7 @@
     "@storybook/addon-onboarding": "1.0.10",
     "@storybook/blocks": "7.6.6",
     "@storybook/builder-vite": "7.6.7",
+    "@storybook/preset-typescript": "3.0.0",
     "@storybook/react": "7.6.6",
     "@storybook/react-vite": "7.6.6",
     "@storybook/test": "7.6.6",

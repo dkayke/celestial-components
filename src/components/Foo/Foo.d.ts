@@ -1,13 +1,9 @@
-import { FC } from 'react'
+import React from 'react'
 
 export interface FooProps {
-  type?: 'A' | 'B';
+  type?: 'A' | 'B'
 }
 
-declare module 'FooModule' {
-  declare const Foo: FC<FooProps>
-}
-
-
+declare const Foo: React.FC<FooProps>
 
 export default Foo
