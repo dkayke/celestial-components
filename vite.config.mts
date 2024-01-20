@@ -4,6 +4,7 @@ import { browserslistToTargets } from 'lightningcss'
 import path from 'path'
 import { defineConfig } from 'vite'
 import copy from 'rollup-plugin-copy'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   plugins: [
@@ -12,7 +13,8 @@ export default defineConfig({
       copyOnce: true,
       hook: 'writeBundle',
       targets: [{ src: './src/assets', dest: 'dist/' }]
-    })
+    }),
+    tsconfigPaths()
   ],
   build: {
     outDir: './dist',
