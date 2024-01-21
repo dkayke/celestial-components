@@ -1,15 +1,16 @@
 import React, { FC, createContext, useContext } from 'react'
-import { ThemeContextProps } from '.'
-import celestialTheme from '.'
+import { ThemeProvider as SCThemeProvider } from 'styled-components'
+import { ThemeContextProviderProps, ThemeContextProps } from './index'
+import { celestialTheme } from './theme'
 
-export const ThemeContext = createContext<{ theme: Theme; loaded: boolean }>({
-  theme: {} as Theme,
+export const ThemeContext = createContext<ThemeContextProps>({
+  theme: celestialTheme as Theme,
   loaded: false
 })
 
-export const ThemeContextProvider: React.FC<ThemeContextProps> = ({
+export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   children,
-  theme = celestialTheme
+  theme
 }) => {
   return (
     <ThemeContext.Provider
@@ -18,7 +19,7 @@ export const ThemeContextProvider: React.FC<ThemeContextProps> = ({
         loaded: true
       }}
     >
-      {children}
+      <SCThemeProvider theme={theme}>{children}</SCThemeProvider>
     </ThemeContext.Provider>
   )
 }
@@ -36,10 +37,11 @@ export const withThemeProvider = <T,>(Component: FC<T>): FC<T> => {
     const context = useContext(ThemeContext)
 
     if (!context.loaded) {
-      const componentName = Component.displayName || Component.name || 'Component'
+      const componentName =
+        Component.displayName || Component.name || 'Component'
       throw new Error(`${componentName} must be used inside CelestialProvider`)
     }
 
-    return <Component {...props} theme={context} />
+    return <Component {...props} theme={context.theme} />
   }
 }

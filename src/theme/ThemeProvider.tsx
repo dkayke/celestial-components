@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
-import { ThemeProvider as SCThemeProvider } from 'styled-components'
+import React from 'react'
 import celestialTheme from './'
+import { ThemeContextProvider } from './ThemeContext'
 import { ThemeProviderProps } from './theme.d'
-import { ThemeContext, ThemeContextProvider } from './ThemeContext'
 
 type DeepPartial<T> = {
   [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
@@ -11,19 +10,21 @@ type DeepPartial<T> = {
 const merge = (theme: Theme, newTheme?: DeepPartial<Theme>): Theme => {
   return {
     color: {
-      primary: { ...theme.color.primary, ...newTheme?.color?.primary }
+      primary: { ...theme.color.primary, ...newTheme?.color?.primary },
+      red: { ...theme.color.red, ...newTheme?.color?.red },
+      yellow: { ...theme.color.yellow, ...newTheme?.color?.yellow },
+      green: { ...theme.color.green, ...newTheme?.color?.green },
+      blue: { ...theme.color.blue, ...newTheme?.color?.blue },
     },
     font: { ...theme.font, ...newTheme?.font }
   }
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
-  const { theme: contextTheme } = useContext(ThemeContext)
+  const customTheme = merge(celestialTheme, theme as Theme)
   return (
-    <ThemeContextProvider theme={merge(celestialTheme, theme as Theme)}>
-      <SCThemeProvider theme={contextTheme}>
-        {children}
-      </SCThemeProvider>
+    <ThemeContextProvider theme={customTheme}>
+      {children}
     </ThemeContextProvider>
   )
 }

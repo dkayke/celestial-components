@@ -67,9 +67,14 @@ export interface ThemeProviderProps {
   theme?: DeepPartial<Theme>
 }
 
-export interface ThemeContextProps {
+export interface ThemeContextProviderProps {
   children: React.ReactNode
   theme: Theme
+}
+
+export interface ThemeContextProps {
+  theme: Theme
+  loaded: boolean
 }
 
 type ColorsName = `primary.${keyof Color['primary']}`
