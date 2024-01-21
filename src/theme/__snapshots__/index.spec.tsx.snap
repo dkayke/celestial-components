@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Theme ThemeProvider deve renderizar corretamente com o tema do contexto 1`] = `
+<div>
+  <p>
+    Celestial
+  </p>
+</div>
+`;
+
+exports[`Theme ThemeProvider deve renderizar corretamente com um tema fornecido 1`] = `
+<div>
+  <p>
+    Celestial
+  </p>
+</div>
+`;

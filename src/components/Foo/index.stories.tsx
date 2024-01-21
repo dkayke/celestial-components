@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Foo from './'
+import { Foo } from './'
 
 const meta = {
   title: 'Example/Foo',
@@ -16,12 +16,12 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    type: 'A'
+    color: 'primary.primary100'
   }
 }
 
 export const Secondary: Story = {
   args: {
-    type: 'B'
+    color: 'primary.primary800'
   }
 }

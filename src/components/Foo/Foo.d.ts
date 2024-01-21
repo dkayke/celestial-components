@@ -1,7 +1,7 @@
 import React from 'react'
 
 export interface FooProps {
-  type?: 'A' | 'B'
+  color?: Theme.ColorsName
 }
 
 declare const Foo: React.FC<FooProps>
