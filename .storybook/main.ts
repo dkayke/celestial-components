@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite'
-import path from 'path'
 
 const config: StorybookConfig = {
   stories: ['./pages/*mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -10,7 +9,8 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-onboarding',
-    '@storybook/preset-typescript'
+    '@storybook/preset-typescript',
+    'storybook-addon-theme-provider'
   ],
   typescript: {
     check: true,

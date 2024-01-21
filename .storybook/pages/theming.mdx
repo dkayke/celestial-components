@@ -1,0 +1,220 @@
+import { Meta, Controls } from "@storybook/blocks";
+import theme from './../../src/theme'
+
+<Meta title="Theming" />
+
+<div className="sb-container">
+  <div>
+    # Theming
+    <p>Customize Celestial Components with your theme.</p>
+  </div>
+  <div className="sb-separator"></div>
+
+  ## Theme Provider
+  <p>The Celestial Components library provides pre-defined tokens that are used in conjunction with the CelestialProvider.</p>
+  
+  <p>To customize the default theme of the library, you should use the theme provider through the ```CelestialProvider``` component. For some components, it will be optional.</p>
+
+  ```typescript
+    // app.tsx
+    import { CelestialProvider, Foo } from 'celestial-components'
+
+    function App() {
+      return (
+        <CelestialProvider>
+          <Foo />
+        </CelestialProvider>
+      )
+    }
+  ```
+
+  <p>Create a custom theme based on the theme typing.</p>
+
+  ```typescript
+    // theme.ts
+    export const customTheme = {
+      font: {
+        primary: 'string',
+        secondary: 'string',
+        tertiary: 'string'
+      }
+      color: {
+        primary: {
+          primary100: 'string',
+          primary200: 'string',
+          primary300: 'string',
+          primary400: 'string',
+          primary500: 'string',
+          primary600: 'string',
+          primary700: 'string',
+          primary800: 'string',
+          primary900: 'string'
+        },
+        red: {
+          red100: 'string',
+          red200: 'string',
+          red300: 'string',
+          red400: 'string',
+          red500: 'string',
+          red600: 'string',
+          red700: 'string',
+          red800: 'string',
+          red900: 'string'
+        },
+        yellow: {
+          yellow100: 'string',
+          yellow200: 'string',
+          yellow300: 'string',
+          yellow400: 'string',
+          yellow500: 'string',
+          yellow600: 'string',
+          yellow700: 'string',
+          yellow800: 'string',
+          yellow900: 'string'
+        },
+        green: {
+          green100: 'string',
+          green200: 'string',
+          green300: 'string',
+          green400: 'string',
+          green500: 'string',
+          green600: 'string',
+          green700: 'string',
+          green800: 'string',
+          green900: 'string'
+        },
+        blue: {
+          blue100: 'string',
+          blue200: 'string',
+          blue300: 'string',
+          blue400: 'string',
+          blue500: 'string',
+          blue600: 'string',
+          blue700: 'string',
+          blue800: 'string',
+          blue900: 'string'
+        }
+      }
+    }
+  ```
+
+  <p>Use your theme in the CelestialProvider.</p>
+
+  ```typescript
+    // app.tsx
+    import { CelestialProvider, Foo } from 'celestial-components'
+    import { customTheme } from './theme'
+
+    function App() {
+      return (
+        <CelestialProvider theme={customTheme}>
+          <Foo />
+        </CelestialProvider>
+      )
+    }
+  ```
+
+  ## Provider Error  
+  <p>If you attempt to use a component that requires the mandatory use of the ```CelestialProvider``` outside the provider's scope, you will encounter the error ```Component must be used inside CelestialProvider```. To resolve it, simply wrap the relevant component in the ```CelestialProvider```.</p>
+
+  ## Colors tokens
+  <p>The Celestial Components library provides pre-defined tokens that are used in conjunction with the CelestialProvider.</p>
+
+  <div className="sb-color-container">
+    <div>
+      {Object.entries(theme.color.primary).map(([key, value]) => {
+        return <p className="sb-color-p" style={{background: value}}>{key} <br/> {value}</p>
+      })}
+    </div>
+
+    <div>
+      {Object.entries(theme.color.red).map(([key, value]) => {
+        return <p className="sb-color-p" style={{background: value}}>{key} <br/> {value}</p>
+      })}
+    </div>
+    
+    <div>
+      {Object.entries(theme.color.yellow).map(([key, value]) => {
+        return <p className="sb-color-p" style={{background: value}}>{key} <br/> {value}</p>
+      })}
+    </div>
+    
+    <div>
+      {Object.entries(theme.color.green).map(([key, value]) => {
+        return <p className="sb-color-p" style={{background: value}}>{key} <br/> {value}</p>
+      })}
+    </div>
+    
+    <div>
+      {Object.entries(theme.color.blue).map(([key, value]) => {
+        return <p className="sb-color-p" style={{background: value}}>{key} <br/> {value}</p>
+      })}
+    </div>
+  </div>
+
+  ## Usage
+  <p>Import the token you need in your React application:</p>
+
+  ```typescript
+  import { Tokens } from 'celestial-components';
+  const { colors } = Tokens
+
+  function App() {
+    return (
+      <p style={{ color: color.primary.primary100 }}>
+        Celestial
+      </p>
+    )
+  }
+  ```
+</div>
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 3rem;
+  }
+
+  img {
+    object-fit: cover;
+    height: 6rem;
+  }
+
+  .sb-section-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sb-color-container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .sb-color-container div {
+    flex-shrink: 1;
+    flex: 1;
+  }
+
+  .sb-color-p {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    box-shadow: 1px 1px 1px #ccc;
+  }
+
+  .sb-separator {
+   width: 100%;
+    height:0.3rem;
+    border-radius: 100%;
+    margin: 2rem auto;
+    background: rgb(107,0,249);
+    background: -moz-linear-gradient(90deg, rgba(107,0,249,1) 0%, rgba(1,99,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(107,0,249,1) 0%, rgba(1,99,255,1) 100%);
+    background: linear-gradient(90deg, rgba(107,0,249,1) 0%, rgba(1,99,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6b00f9",endColorstr="#0163ff",GradientType=1);
+  }
+  `}
+</style>
